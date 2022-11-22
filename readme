@@ -1,6 +1,6 @@
 # CICD Andrés Mínguez
 
-## Inicio de la práctica.
+## Inicio de la práctica
 
 El objetivo de esta práctica es montar un proyecto que nos pudoeramos encontrar en cualquier puesto de trabajo Devops.
 En este caso, la empresa ACME quiere empezar a probar la nube, por lo que vamos a crear de manera totalmente automatizada unidades de almacenamiento en la nube (AWS S3)
