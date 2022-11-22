@@ -1,16 +1,21 @@
-Configuracion de jenkins
+## Configuracion de jenkins
 
-Una vez tenemos la instancia de AWS creada, se crean los script de provisioning.
-Cuando se ejecuta el primer script, se genera una clave de acceso, que tendremos que pegar en nuestro github, en el apartado de ssh key.
-Reiniciamos la máquina y ejecutamos el segundo script.
+Una vez tenemos la instancia de AWS creada:
+
+1. Se crean los script de provisioning. 
+
+2. Se ejecuta el primer script, se genera una clave de acceso, que tendremos que pegar en nuestro github, en el apartado de ssh key.
+
+3. Reiniciamos la máquina y ejecutamos el segundo script.
 Una vez ejecutado, en la consola nos mostrará la clave de jenkins que nos ha generado.
 
-En nuestra instancia ded AWs, tendremos que coger la Public IPv4 address, para que en el navegador, se nos abra Jenkins, el cual nos pedirá la clave generada en el script anterior.
+4. En nuestra instancia ded AWS, tendremos que coger la Public IPv4 address, para que en el navegador, se nos abra Jenkins, el cual nos pedirá la clave generada en el script anterior.
 
-Lo prmero de todo es tener los siguientes plug in instalados:
+5. Instalar los siguientes plug in:
+```sh
+Docker, Docker plugin, Docker Pipeline, AnsiColor, Git, GitHub Plugin, Build Timeout, Job DSL, SSH Agent Plugin, Pipeline, Timestamper, Folders
+```    
 
- Docker, Docker plugin, Docker Pipeline, AnsiColor, Git, GitHub Plugin, Build Timeout, Job DSL, SSH Agent Plugin, Pipeline, Timestamper, Folders
+6. Configurar la contraseña que Jenkins va a utilizar para conectar con los agents.
 
-Lo siguiente es configurar la contraseña que Jenkins va a utilizar para conectar con los agents.
-
-Creamos un pipeline con variables de entorno en las que metemos las credenciales de AWS. Esto lo hacemos para que Jenkins concecte con nuestro AWS y poder desplegar los recursos.
+7. Creamos un pipeline con variables de entorno en las que metemos las credenciales de AWS. Esto lo hacemos para que Jenkins concecte con nuestro AWS y poder desplegar los recursos.
