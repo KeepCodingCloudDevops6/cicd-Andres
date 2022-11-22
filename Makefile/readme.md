@@ -26,6 +26,7 @@ apply:
 Para instalar make, se pueden seguir las siguientes instrucciones en el siguiente enlace:
 
 ```sh
+
 https://linuxhint.com/install-make-ubuntu/
 
 ```
