@@ -33,3 +33,109 @@ Joddsl,  correrá Jenkins para crear el job de despliegue
 
 
 MANUAL DE USUARIO
+
+
+Terraform:
+
+Para comenzar la práctica, tenemos que tener creado un Bucket S3 en AWS. Para ello se pueden seguir las instrucciones aquí  
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html
+
+Para poder continuar con la practica, es necesario tener instalado Terraform 
+
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
+Con el archivo main.tf, creamos el bucket en AWS:
+
+resource "aws_s3_bucket" "acme-storage-andres" {
+  bucket = "acme-storage-andres"
+}
+
+resource "aws_s3_bucket_acl" "bucket-acl-andres" {
+  bucket = "acme-storage-andres"
+  acl    = "private"
+}
+
+Con el archivo provider.tf, desplegamos la estructura en Terraform:
+
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.34.0"
+    }
+  }
+}
+provider "aws" {
+    region = "eu-west-1"
+}
+
+
+Makefile:
+
+Despliege de terraform creándose un bucket de almacenamiento en AWS. Este apartado tiene su propio readme
+
+all: init plan apply clean
+
+clean:
+	cd .. && cd terraform && rm -fR terraform/ && rm -fR terraform.* && rm -fR .terraform.*
+
+init:
+	cd ../terraform && terraform init
+
+plan:
+	cd ../terraform && terraform plan
+
+apply:
+	cd ../terraform && terraform apply -auto-approve
+
+
+Jenkins
+
+Este apartado nos sirve para la creación de la base de datos. Cuenta con su propio readme
+
+Github/workflows
+
+En este apartado encontraremos el archivo terraform.yaml, un pipeline para implementar AWS S3 en GitHubActions.
+
+
+Configuramos terraform con "hashicorp/setup-terraform@v2":
+
+    name: Setup Terraform
+    uses: hashicorp/setup-terraform@v2
+
+Configuramos AWS Credentials para poder conectarnos:
+
+    name: Setup AWS Credentials
+    uses: aws-actions/configure-aws-credentials@v1
+      
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: "eu-west-1"
+
+
+Ahora paso a paso: 
+
+Iniciamos terraform:
+
+      name: Init
+      run: terraform init
+      working-directory: ./terraform
+
+Ejecutamos:
+
+      name: Plan
+      run: terraform plan
+      working-directory: ./terraform
+
+ Aplicammos los cambios necesarios para la configuración, junto a auto-approve, para que no sea necesario confirmar nada
+
+      name: Apply
+      run: terraform apply -auto-approve
+      working-directory: ./terraform
+
+ Eliminamos todos los archivos que no nos hagan falta
+
+      name: Clean
+      run: rm -r .terraform/ && rm .terraform.* && rm terraform.*
+      working-directory: ./terraform
