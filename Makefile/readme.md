@@ -39,5 +39,5 @@ Hay que asegurarse de que el sistema esté actualizado y tenga instalados los pa
 
 Hay que asegurarse de tener las credenciales de aws configuradas correctamente en el directorio   "~/.aws/credentials".
 
-Lo primero de todo es tener terraform [instalado](https://nksistemas.com/como-instalar-terraform-en-ubuntu-22-0420-04-18-04/) 
+Hay que acordarse de tener instalado [Terraform](https://nksistemas.com/como-instalar-terraform-en-ubuntu-22-0420-04-18-04/) 
 
