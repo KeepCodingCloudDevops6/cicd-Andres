@@ -22,7 +22,7 @@ apply:
 3. Se crea la ejecución
 4. Se aplica
 
-Para instalar make, se pueden seguir las siguientes [instrucciones](https://linuxhint.com/install-make-ubuntu/)
+Para instalar make, se pueden seguir las siguientes[instrucciones](https://linuxhint.com/install-make-ubuntu/)
 
 Para que Terraform pueda crear el bucket en AWS, se tienen que configurar las [credenciales en AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html),  para acceder a nuestra cuenta.
 
