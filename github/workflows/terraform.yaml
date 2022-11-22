@@ -1,0 +1,44 @@
+# This workflow will deploy a bucket S3 in AWS with terraform
+name: Deploy AWS S3
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  terraform:
+    name: terraform
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+    
+    - name: Setup AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: "eu-west-1"
+   
+    - name: Init
+      run: terraform init
+      working-directory: ./terraform
+    
+    - name: Plan
+      run: terraform plan
+      working-directory: ./terraform
+    
+    - name: Apply
+      run: terraform apply -auto-approve
+      working-directory: ./terraform
+    
+    - name: Clean
+      run: rm -r .terraform/ && rm .terraform.* && rm terraform.*
+      working-directory: ./terraform
