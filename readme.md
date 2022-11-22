@@ -44,7 +44,7 @@ Para poder continuar con la practica, es necesario tener instalado [Terraform](h
 
 
 
-Con el archivo maintf, creamos el bucket en AWS:
+Con el archivo main.tf, creamos el bucket en AWS:
 ```sh
 resource "aws_s3_bucket" "acme-storage-andres" {
   bucket = "acme-storage-andres"
@@ -55,7 +55,7 @@ resource "aws_s3_bucket_acl" "bucket-acl-andres" {
   acl    = "private"
 }
 ```
-Con el archivo providertf, desplegamos la estructura en Terraform:
+Con el archivo provider.tf, desplegamos la estructura en Terraform:
 ```sh
 terraform {
   required_providers {
