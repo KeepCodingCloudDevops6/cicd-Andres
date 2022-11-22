@@ -1,6 +1,6 @@
-CICD Andrés Mínguez
+# CICD Andrés Mínguez
 
-Inicio de la práctica.
+## Inicio de la práctica.
 
 El objetivo de esta práctica es montar un proyecto que nos pudoeramos encontrar en cualquier puesto de trabajo Devops.
 En este caso, la empresa ACME quiere empezar a probar la nube, por lo que vamos a crear de manera totalmente automatizada unidades de almacenamiento en la nube (AWS S3)
@@ -18,34 +18,34 @@ ACME lleva usando Jenkins mucho tiempo pero está actualmente abriéndose a prob
 
 En este proyecto se encuentran los siguientes entregables:
 
-Dockerfile: en esta carpeta nos econtramos:
+- Dockerfile: en esta carpeta nos econtramos:
     base.Dockerfile2 y t.Dockerfile, archivos para poder desplegar los agentes para Jenkins
 
-Github\Workflows, donde encontramos el archivo terraform.yaml, necesario para desplegar en AWS.
+- Github\Workflows, donde encontramos el archivo terraform.yaml, necesario para desplegar en AWS.
 
-Carpeta Jenkins, en la que encontraremos ficheros como jenkinsfile, necesarios para la creación de la base de datos
+- Carpeta Jenkins, en la que encontraremos ficheros como jenkinsfile, necesarios para la creación de la base de datos
 
-Makefile, Con este makefile conseguimos un despliege de terraform creándose un bucket de almacenamiento en AWS 
+- Makefile, Con este makefile conseguimos un despliege de terraform creándose un bucket de almacenamiento en AWS 
 
-Carpeta de Terraform, en la que encontramos los main y provider, con los que creamos el bucket en  AWS y desplegamos la estructura en Terraform
+- Carpeta de Terraform, en la que encontramos los main y provider, con los que creamos el bucket en  AWS y desplegamos la estructura en Terraform
 
-Joddsl,  correrá Jenkins para crear el job de despliegue
-
-
-MANUAL DE USUARIO
+- Joddsl,  correrá Jenkins para crear el job de despliegue
 
 
-Terraform:
+## MANUAL DE USUARIO
 
-Para comenzar la práctica, tenemos que tener creado un Bucket S3 en AWS. Para ello se pueden seguir las instrucciones aquí  
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html
 
-Para poder continuar con la practica, es necesario tener instalado Terraform 
+# Terraform:
 
-https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+Para comenzar la práctica, tenemos que tener creado un Bucket S3 en AWS. Para ello se pueden seguir las [instrucciones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)  
 
-Con el archivo main.tf, creamos el bucket en AWS:
 
+Para poder continuar con la practica, es necesario tener instalado [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+
+
+
+Con el archivo maintf, creamos el bucket en AWS:
+```sh
 resource "aws_s3_bucket" "acme-storage-andres" {
   bucket = "acme-storage-andres"
 }
@@ -54,9 +54,9 @@ resource "aws_s3_bucket_acl" "bucket-acl-andres" {
   bucket = "acme-storage-andres"
   acl    = "private"
 }
-
-Con el archivo provider.tf, desplegamos la estructura en Terraform:
-
+```
+Con el archivo providertf, desplegamos la estructura en Terraform:
+```sh
 terraform {
   required_providers {
     aws = {
@@ -68,12 +68,12 @@ terraform {
 provider "aws" {
     region = "eu-west-1"
 }
+```
 
-
-Makefile:
+# Makefile:
 
 Despliege de terraform creándose un bucket de almacenamiento en AWS. Este apartado tiene su propio readme
-
+```sh
 all: init plan apply clean
 
 clean:
@@ -87,13 +87,13 @@ plan:
 
 apply:
 	cd ../terraform && terraform apply -auto-approve
+```
 
-
-Jenkins
+# Jenkins
 
 Este apartado nos sirve para la creación de la base de datos. Cuenta con su propio readme
 
-Github/workflows
+# Github/workflows
 
 En este apartado encontraremos el archivo terraform.yaml, un pipeline para implementar AWS S3 en GitHubActions.
 
