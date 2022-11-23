@@ -16,6 +16,6 @@ Una vez ejecutado, en la consola nos mostrará la clave de jenkins que nos ha ge
 Docker, Docker plugin, Docker Pipeline, AnsiColor, Git, GitHub Plugin, Build Timeout, Job DSL, SSH Agent Plugin, Pipeline, Timestamper, Folders
 ```    
 
-6. Configurar la contraseña que Jenkins va a utilizar para conectar con los agents.
+6. Configurar la contraseña que Jenkins va a utilizar para conectar con los agentes.
 
-7. Creamos un pipeline con variables de entorno en las que metemos las credenciales de AWS. Esto lo hacemos para que Jenkins concecte con nuestro AWS y poder desplegar los recursos.
+7. Creamos un pipeline con variables de entorno en las que metemos las credenciales de AWS. Esto lo hacemos para que Jenkins conecte con nuestro AWS y poder desplegar los recursos.
