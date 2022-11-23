@@ -75,7 +75,8 @@ provider "aws" {
 # Makefile: ![image](https://user-images.githubusercontent.com/86802349/203499835-87d8779c-cb6e-46c5-864a-a2e88b31488c.png)
 
 
-Despliegue de terraform creándose un bucket de almacenamiento en AWS. Este apartado tiene su propio readme en su sección.
+Utilizamos el Makefile para poder crear el pipeline del recurso aws_s3_bucket gracias al script de Terraform (main.tf, provider.tf).
+
 ```sh
 all: init plan apply clean
 
