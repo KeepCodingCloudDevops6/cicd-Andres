@@ -1,3 +1,13 @@
+
+
+# Requisitos previos
+Hay que asegurarse de que el sistema esté actualizado y tenga instalados los paquetes:
+- gnupg, 
+- software-properties-common
+- curl.
+ 
+Hay que acordarse de tener instalado [Terraform](https://nksistemas.com/como-instalar-terraform-en-ubuntu-22-0420-04-18-04/) 
+
 ## Makefile
 
 Con un archivo makefile, se define un conjunto de tareas a ejecutar. Con este makefile, conseguimos un despliege de terraform creándose un bucket de almacenamiento en AWS .
@@ -31,12 +41,5 @@ Para instalar make, se pueden seguir las siguientes [instrucciones](https://linu
 Para que Terraform pueda crear el bucket en AWS, se tienen que configurar las [credenciales en AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html),  para acceder a nuestra cuenta en el directorio   "~/.aws/credentials".
 
 
-# Requisitos previos
-Hay que asegurarse de que el sistema esté actualizado y tenga instalados los paquetes:
-- gnupg, 
-- software-properties-common
-- curl.
- 
 
-Hay que acordarse de tener instalado [Terraform](https://nksistemas.com/como-instalar-terraform-en-ubuntu-22-0420-04-18-04/) 
 
