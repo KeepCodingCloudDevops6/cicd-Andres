@@ -28,7 +28,7 @@ apply:
 Para instalar make, se pueden seguir las siguientes [instrucciones](https://linuxhint.com/install-make-ubuntu/)
 
 
-Para que Terraform pueda crear el bucket en AWS, se tienen que configurar las [credenciales en AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html),  para acceder a nuestra cuenta.
+Para que Terraform pueda crear el bucket en AWS, se tienen que configurar las [credenciales en AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html),  para acceder a nuestra cuenta en el directorio   "~/.aws/credentials".
 
 
 # Requisitos previos
@@ -36,8 +36,7 @@ Hay que asegurarse de que el sistema esté actualizado y tenga instalados los pa
 - gnupg, 
 - software-properties-common
 - curl.
-
-Hay que asegurarse de tener las credenciales de aws configuradas correctamente en el directorio   "~/.aws/credentials".
+ 
 
 Hay que acordarse de tener instalado [Terraform](https://nksistemas.com/como-instalar-terraform-en-ubuntu-22-0420-04-18-04/) 
 
