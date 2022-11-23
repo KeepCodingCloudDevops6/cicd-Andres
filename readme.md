@@ -2,18 +2,18 @@
 
 ## Inicio de la práctica.
 
-El objetivo de esta práctica es montar un proyecto que nos pudoeramos encontrar en cualquier puesto de trabajo Devops.
+El objetivo de esta práctica es montar un proyecto que nos pudieramos encontrar en cualquier puesto de trabajo Devops.
 En este caso, la empresa ACME quiere empezar a probar la nube, por lo que vamos a crear de manera totalmente automatizada unidades de almacenamiento en la nube (AWS S3)
 
 Los requerimentos que nos ha dado ACME son los siguientes:
 
-Quieren una unidad almacenamiento que se llamará acme-storage, será un bucket S3 de AWS
-Quieren que el flujo de despliegue sea "Continuous Delivery" en la rama main, es decir, un administrador validará el comando de puesta en producción de la infraestructura
-Sin embargo, en otras ramas distintas de main, el despliegue será "Continuous Deployment" y no habrá aprobación manual, será totalmente automático
-Los desarrolladores de ACME han de poder hacer el despliegue también desde sus máquinas
-Quieren que las credenciales para desplegar nunca estén guardadas en el código
-Además ACME también quiere revisar cada 10 minutos que el contenido que hay en la unidad de almacenamiento no supera los 20MiB. Si esto pasa, se vaciará de manera automatizada
-ACME lleva usando Jenkins mucho tiempo pero está actualmente abriéndose a probar nuevas teconologías con menor coste de gestión como Github Actions. Es por esto que también se requiere un pipeline de Github actions para el despliegue de la unidad de almacenamiento, de modo que ACME pueda comparar ambas tecnologías
+Quieren una unidad almacenamiento que se llamará acme-storage, será un bucket S3 de AWS.
+Quieren que el flujo de despliegue sea "Continuous Delivery" en la rama main, es decir, un administrador validará el comando de puesta en producción de la infraestructura.
+Sin embargo, en otras ramas distintas de main, el despliegue será "Continuous Deployment" y no habrá aprobación manual, será totalmente automático.
+Los desarrolladores de ACME han de poder hacer el despliegue también desde sus máquinas.
+Quieren que las credenciales para desplegar nunca estén guardadas en el código.
+Además ACME también quiere revisar cada 10 minutos que el contenido que hay en la unidad de almacenamiento no supera los 20MiB. Si esto pasa, se vaciará de manera automatizada.
+ACME lleva usando Jenkins mucho tiempo pero está actualmente abriéndose a probar nuevas teconologías con menor coste de gestión como Github Actions. Es por esto que también se requiere un pipeline de Github actions para el despliegue de la unidad de almacenamiento, de modo que ACME pueda comparar ambas tecnologías.
 
 
 En este proyecto se encuentran los siguientes entregables:
@@ -29,7 +29,7 @@ En este proyecto se encuentran los siguientes entregables:
 
 - Carpeta de Terraform, en la que encontramos los main y provider, con los que creamos el bucket en  AWS y desplegamos la estructura en Terraform
 
-- Joddsl,  correrá Jenkins para crear el job de despliegue
+- Jobdsl,  correrá Jenkins para crear el job de despliegue
 
 
 ## MANUAL DE USUARIO  ![image](https://user-images.githubusercontent.com/86802349/203499307-39d7bb65-0065-4c71-92ca-98a36e07755a.png)
@@ -42,7 +42,7 @@ En este proyecto se encuentran los siguientes entregables:
 Para comenzar la práctica, tenemos que tener creado un Bucket S3 en AWS. Para ello se pueden seguir las [instrucciones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)  
 
 
-Para poder continuar con la practica, es necesario tener instalado [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+Para poder continuar con la práctica, es necesario tener instalado [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
 
 
 
@@ -75,7 +75,7 @@ provider "aws" {
 # Makefile: ![image](https://user-images.githubusercontent.com/86802349/203499835-87d8779c-cb6e-46c5-864a-a2e88b31488c.png)
 
 
-Despliege de terraform creándose un bucket de almacenamiento en AWS. Este apartado tiene su propio readme
+Despliegue de terraform creándose un bucket de almacenamiento en AWS. Este apartado tiene su propio readme en su sección.
 ```sh
 all: init plan apply clean
 
@@ -95,7 +95,7 @@ apply:
 # Jenkins  ![image](https://user-images.githubusercontent.com/86802349/203498956-efd38802-a80b-4f0d-b7c5-8d8cbae74072.png)
 
 
-Este apartado nos sirve para la creación de la base de datos. Cuenta con su propio readme
+Este apartado nos sirve para la creación de la base de datos. Cuenta con su propio readme en su sección.
 
 # Github/workflows
 
