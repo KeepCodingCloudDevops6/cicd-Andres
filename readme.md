@@ -57,7 +57,7 @@ resource "aws_s3_bucket_acl" "bucket-acl-andres" {
   acl    = "private"
 }
 ```
-Con el archivo provider.tf, desplegamos la estructura en Terraform:
+Con el archivo provider.tf, especificamos la configuración para el despliegue, desde la versión, en qué nube estamos desplegando y en qué región queremos el despliegue.
 ```sh
 terraform {
   required_providers {
