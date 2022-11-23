@@ -132,7 +132,7 @@ Ejecutamos:
       run: terraform plan
       working-directory: ./terraform
 
- Aplicammos los cambios necesarios para la configuración, junto a auto-approve, para que no sea necesario confirmar nada
+ Aplicamos los cambios necesarios para la configuración, junto a auto-approve, para que no sea necesario confirmar nada
 
       name: Apply
       run: terraform apply -auto-approve
