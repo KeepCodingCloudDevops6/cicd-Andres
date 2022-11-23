@@ -32,10 +32,12 @@ En este proyecto se encuentran los siguientes entregables:
 - Joddsl,  correrá Jenkins para crear el job de despliegue
 
 
-## MANUAL DE USUARIO
+## MANUAL DE USUARIO  ![image](https://user-images.githubusercontent.com/86802349/203499307-39d7bb65-0065-4c71-92ca-98a36e07755a.png)
 
 
-# Terraform:
+
+# Terraform  ![image](https://user-images.githubusercontent.com/86802349/203499184-57f29040-3e25-47a9-b943-9e45ff78c452.png)
+
 
 Para comenzar la práctica, tenemos que tener creado un Bucket S3 en AWS. Para ello se pueden seguir las [instrucciones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)  
 
@@ -70,7 +72,8 @@ provider "aws" {
 }
 ```
 
-# Makefile:
+# Makefile: ![image](https://user-images.githubusercontent.com/86802349/203499835-87d8779c-cb6e-46c5-864a-a2e88b31488c.png)
+
 
 Despliege de terraform creándose un bucket de almacenamiento en AWS. Este apartado tiene su propio readme
 ```sh
